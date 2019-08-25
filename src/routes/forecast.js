@@ -7,7 +7,7 @@ const Weather = require('../models/Weather');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const { city } = req.query;
+  const city = req.query.city || 'hobart';
   try {
     const { data } = await axios.get(url.forecast, {
       params: {
